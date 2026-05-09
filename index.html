@@ -1,0 +1,18 @@
+class Army:
+    def __init__(self, name):
+        self.name = name
+        self.units = {"Infantry": 0, "Tanks": 0, "Artillery": 0}
+        self.total_power = 0
+
+    def recruit(self, unit_type, count):
+        if unit_type in self.units:
+            self.units[unit_type] += count
+            # Define power levels for different units
+            power_map = {"Infantry": 1, "Tanks": 10, "Artillery": 5}
+            self.total_power += count * power_map[unit_type]
+            print(f"Recruited {count} {unit_type}. Total Power: {self.total_power}")
+
+# Example Usage
+my_army = Army("Grand Legion")
+my_army.recruit("Infantry", 1000)
+my_army.recruit("Tanks", 50)
